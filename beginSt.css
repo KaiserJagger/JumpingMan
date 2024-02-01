@@ -1,0 +1,92 @@
+*{
+	font-family: 'Staatliches', cursive;
+	font-size: 15px;
+	font-weight: 100;
+}
+
+body{
+	background-color: black;
+}
+
+.flex-container{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: center;
+	background-color: #444;
+	margin: 50px 50px;
+	padding: 20px;
+	border:20px solid transparent;
+	outline: 4px solid #696969;
+}
+
+form-img{
+	flex: 1;
+	display: flex; 
+	padding: 10px;
+	min-width: 100px; /*para que no se encoja cuando achicamos la pagina*/
+	max-width: 200px; /*maximo que se agranda*/
+	order: 2;
+}
+
+.form-img div{
+	padding: 10px;
+}
+
+
+.img-container{
+	margin: auto;
+}
+
+.img-container div{ /*aca editamos el div de la img*/
+	background-color: #696969;
+	border-radius: 50%;
+	text-align: center;
+	padding:40px;
+}
+
+.form-img img{
+	width: 40%;
+	margin: auto;
+}
+
+
+.form{
+	min-width: 400px;
+	flex: 1;
+	text-align: center;
+	padding: 30px;
+	order: 5;
+}
+
+.form__input:focus{ 
+	background:linear-gradient(to bottom, transparent);
+	outline: none;
+	border-bottom: 3px solid black;
+}
+
+.form textarea{
+	min-height: 50px;
+	resize: none;
+}
+
+
+
+.form input[type="submit"]{
+	background-color: darkblue;
+	padding: 12px;
+}
+
+
+.form input[type="submit"]:hover{
+	background-color: #191970;
+	padding: 12px;
+}
+
+.form input[type="submit"]:focus{
+	background:darkblue;
+}
+
+.form input[type="submit"]:active{
+	background:linear-gradient(to bottom, darkblue, #191970);
+}
