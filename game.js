@@ -71,11 +71,12 @@ let man;
 let textoScore;
 let suelo;
 let gameOver;
-
+let mensajeReinicio
 
 // La función Start se encarga de la inicialización de elementos del juego y la asignación de eventos.
 function Start() {
     gameOver = document.querySelector(".game-over");
+    mensajeReinicio = document.querySelector(".reset-msg");
     suelo = document.querySelector(".suelo");
     contenedor = document.querySelector(".contenedor");
     textoScore = document.querySelector(".score");
@@ -95,17 +96,6 @@ function Update() {
     MoveClouds();
     DetectCollision();
     velY -= gravedad * deltaTime;
-}
-
-// HandleKeyDown: Maneja el evento de presionar la tecla "Space" para saltar.
-function HandleKeyDown(ev) {
-    if (ev.keyCode == 32) {
-        if (parado) {
-            ResetGame();
-        } else {
-            Jump();
-        }
-    }
 }
 
 // Maneja la acción de saltar del personaje.
@@ -237,6 +227,7 @@ function EarnPoints() {
 function GameOver() {
     Crash();
     gameOver.style.display = "block";
+    mensajeReinicio.style.display = "block"
 }
 
 // Funciones para detectar colisiones entre el personaje y los obstáculos.
@@ -292,7 +283,9 @@ function IsCollision(a, b, paddingTop, paddingRight, paddingBottom, paddingLeft)
     
         // Oculta el mensaje de Game Over
         gameOver.style.display = "none";
-    
+
+        mensajeReinicio.style.display = "none";
+
         // Elimina la clase "man-estrellado" del personaje
         man.classList.remove("man-estrellado");
     
@@ -306,4 +299,14 @@ function IsCollision(a, b, paddingTop, paddingRight, paddingBottom, paddingLeft)
         Loop();
     }
     
-    
+    // HandleKeyDown: Maneja el evento de presionar la tecla "Space" para saltar.
+function HandleKeyDown(ev) {
+    if (ev.keyCode === 13) { // 13 es el código de tecla Enter
+        ResetGame();
+    } else if (ev.keyCode === 32) { // 32 es el código de tecla Space
+        if (parado) {
+        } else {
+            Jump();
+        }
+    }
+}
